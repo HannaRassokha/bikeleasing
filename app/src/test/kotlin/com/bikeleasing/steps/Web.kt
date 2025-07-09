@@ -12,13 +12,17 @@ open class Web : ScenarioSteps() {
     lateinit var homePage: HomePage
     lateinit var currentPage: CurrentPage
 
-    @Step("Open URL: {0}")
-    fun navigateTo() {
+    @Step("Open URL: ")
+    open fun navigateTo() {
         homePage.open()
     }
 
     @Step("Check current Url")
-    fun checkUrl() {
-        assertEquals("https://bikeleasing.de",currentPage.driver.currentUrl.removeSuffix("/"), "The current URL should match the expected one")
+    open fun checkUrl() {
+        assertEquals(
+            "https://bikeleasing.de",
+            currentPage.driver.currentUrl.removeSuffix("/"),
+            "The current URL should match the expected one"
+        )
     }
 }

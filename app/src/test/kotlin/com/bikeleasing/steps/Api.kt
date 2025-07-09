@@ -24,7 +24,7 @@ open class Api {
             ?: error("Missing 'api.base.url' in environment config")
 
     @Step("Fetch cat facts from endpoint")
-    fun fetchCatFacts(): List<CatFact> {
+    open fun fetchCatFacts(): List<CatFact> {
         val catFactResponse: CatFactResponse = RestAssured
             .given()
             .baseUri(apiBaseUrl)
@@ -40,7 +40,7 @@ open class Api {
     }
 
     @Step("Validate cat facts")
-    fun validateCatFacts(facts: List<CatFact>) {
+    open fun validateCatFacts(facts: List<CatFact>) {
         println("5 Cat Facts:")
         facts.take(5).forEachIndexed { i, fact ->
             println("${i + 1}. ${fact.fact}")
@@ -48,7 +48,7 @@ open class Api {
     }
 
     @Step("Assert first cat fact length")
-    fun assertFactLength(facts: List<CatFact>) {
+    open fun assertFactLength(facts: List<CatFact>) {
         val firstFact = facts.first()
         println("Fact: ${firstFact.fact}")
         println("Expected length: ${firstFact.length}, Actual: ${firstFact.fact.length}")

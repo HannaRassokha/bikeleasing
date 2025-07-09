@@ -10,7 +10,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("net.serenity-bdd:serenity-core:2.9.8")
+    implementation("net.serenity-bdd:serenity-core:3.9.8")
     implementation("net.serenity-bdd:serenity-junit5:3.9.8")
     implementation("net.serenity-bdd:serenity-screenplay:3.9.8")
     implementation("net.serenity-bdd:serenity-screenplay-webdriver:3.9.8")
