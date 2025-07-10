@@ -18,8 +18,9 @@ Feature: Login to portal.bikeleasing.de
     Then user sees notification error message
 
     Examples:
-      | userid    | password  |
-      | A1B2-C3D5 | Hello123! |
+      | userid    | password  | # Explanation
+      | A1B2-C3D5 | Hello123! | # userid or password is incorrect
+      | A5B6-C7D9 | Test!123  | # user does not exist in the system
 
   Scenario Outline: Login with invalid password format
     Given user is on login page
@@ -29,10 +30,10 @@ Feature: Login to portal.bikeleasing.de
 
     Examples:
       | userid    | password   | # Explanation
-      | 123456789 | 1234567    | // passwort too short less then 8
-      | 123456789 | password1! | // no capital letter
-      | 123456789 | Password!  | // no sepcific numer
-      | 123456789 | Password1  | // no specific caracter
+      | 123456789 | 1234567    | # password too short (less then 8)
+      | 123456789 | password1! | # no capital letter
+      | 123456789 | Password!  | # no specific number
+      | 123456789 | Password1  | # no specific character
 
   Scenario Outline: Login button disabled for invalid userid and password
     Given user is on login page
