@@ -2,11 +2,11 @@ Feature: Registration at portal.bikeleasing.de
 
   Scenario Outline: All mandatory fields in registration form are filled with valid data
     Given user is on registration page
-    When user enters valid employeer_code "<employer_code>" and salutation "<salutation>"
-    And user enters valid surname "<surname>" and firstname "<firstname>"
-    And user enters valid email "<email>" and phone "<phone>"
-    And user enters valid personalid "<personalid>" and password "<password>"
-    And user enters valid cost_center "<cost_center>"
+    When user enters employeer_code "<employer_code>" and salutation "<salutation>"
+    And user enters surname "<surname>" and firstname "<firstname>"
+    And user enters email "<email>" and phone "<phone>"
+    And user enters personalid "<personalid>" and password "<password>"
+    And user enters cost_center "<cost_center>"
     And user clicks on register button
     Then user is redirected to bikeleasing portal
 
@@ -16,11 +16,11 @@ Feature: Registration at portal.bikeleasing.de
 
   Scenario Outline: Not all mandatory fields in registration form are filled with valid data
     Given user is on registration page
-    When user enters valid employeer_code "<employer_code>" and salutation "<salutation>"
-    And user enters valid surname "<surname>" and firstname "<firstname>"
-    And user enters valid email "<email>" and phone "<phone>"
-    And user enters valid personalid "<personalid>" and password "<password>"
-    And user enters valid cost_center "<cost_center>"
+    When user enters employeer_code "<employer_code>" and salutation "<salutation>"
+    And user enters surname "<surname>" and firstname "<firstname>"
+    And user enters email "<email>" and phone "<phone>"
+    And user enters personalid "<personalid>" and password "<password>"
+    And user enters cost_center "<cost_center>"
     And user clicks on register button
     Then user sees error modal with invalidity_reason "<invalidity_reason>"
 
@@ -39,13 +39,13 @@ Feature: Registration at portal.bikeleasing.de
 
   Scenario Outline: All fields in registration form are filled with valid data
     Given user is on registration page
-    When user enters valid employeer_code "<employer_code>" and salutation "<salutation>"
-    And user enters valid surname "<surname>" and firstname "<firstname>"
-    And user enters valid email "<email>" and phone "<phone>"
-    And user enters valid personalid "<personalid>" and password "<password>"
-    And user enters valid cost_center "<cost_center>
-    And user enters valid address "<address>" and postal_code "<postal_code>"
-    And user enters valid city "<city>" and mobile_phone "<mobile_phone>"
+    When user enters employeer_code "<employer_code>" and salutation "<salutation>"
+    And user enters surname "<surname>" and firstname "<firstname>"
+    And user enters email "<email>" and phone "<phone>"
+    And user enters personalid "<personalid>" and password "<password>"
+    And user enters cost_center "<cost_center>
+    And user enters address "<address>" and postal_code "<postal_code>"
+    And user enters city "<city>" and mobile_phone "<mobile_phone>"
     And user clicks on register button
     Then user is redirected to bikeleasing portal
 
@@ -56,13 +56,13 @@ Feature: Registration at portal.bikeleasing.de
 
   Scenario Outline: Invalid or missing data in optional fields do not prevents registration
     Given user is on registration page
-    When user enters valid employeer_code "<employer_code>" and salutation "<salutation>"
-    And user enters valid surname "<surname>" and firstname "<firstname>"
-    And user enters valid email "<email>" and phone "<phone>"
-    And user enters valid personalid "<personalid>" and password "<password>"
-    And user enters valid cost_center "<cost_center>"
-    And user enters address "<address>" and  invalid postal_code "<postal_code>"
-    And user enters valid city "<city>" and mobile_phone "<mobile_phone>"
+    When user enters employeer_code "<employer_code>" and salutation "<salutation>"
+    And user enters surname "<surname>" and firstname "<firstname>"
+    And user enters email "<email>" and phone "<phone>"
+    And user enters personalid "<personalid>" and password "<password>"
+    And user enters cost_center "<cost_center>"
+    And user enters address "<address>" and postal_code "<postal_code>"
+    And user enters city "<city>" and mobile_phone "<mobile_phone>"
     And user clicks on register button
     Then user is redirected to bikeleasing portal
 

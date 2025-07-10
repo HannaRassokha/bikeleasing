@@ -1,0 +1,13 @@
+Task 1: Test analysis and documentation of contract creation process
+
+Test Cases:
+1.Retailer triggers contract creation through Employer
+2.Retailer triggers contract creation through Employee
+
+for each above mentioned scenario following contract validation is performed:
+
+Contract validation: (Exclusion list)
+1.Existent retailer, not in exclusion list -> message notification to retailer
+2.Existent retailer, in exclusion list -> no message to retailer
+3.Non-existent retailer, request property (get_retailer_prop), add to retailers list (names), check property for exclusion -> add to exclusion list => no message to retailer
+4.Non-existent retailer, request property (get_retailer_prop), add to retailers list (names), check property for exclusion -> do not add to exclusion list => message to retailer

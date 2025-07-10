@@ -2,7 +2,8 @@ Feature: Login to portal.bikeleasing.de
 
   Scenario Outline: Login with valid credentials
     Given user is on login page
-    When user enters valid userid "<userid>" and password "<password>" and clicks login button
+    When user enters userid "<userid>" and password "<password>"
+    And clicks login button
     Then user should be redirected to the dashboard
 
     Examples:
@@ -12,7 +13,8 @@ Feature: Login to portal.bikeleasing.de
 
   Scenario Outline: Login with invalid credentials
     Given user is on login page
-    When user enters invalid userid "<userid>" and invalid password "<password>" and clicks login button
+    When user enters userid "<userid>" and password "<password>"
+    And clicks login button
     Then user sees notification error message
 
     Examples:
@@ -21,7 +23,8 @@ Feature: Login to portal.bikeleasing.de
 
   Scenario Outline: Login with invalid password format
     Given user is on login page
-    When user enters valid userid "<userid>" invalid password "<password>" and clicks login button
+    When user enters userid "<userid>" and password "<password>"
+    And clicks login button
     Then user sees notification error message
 
     Examples:
@@ -33,7 +36,7 @@ Feature: Login to portal.bikeleasing.de
 
   Scenario Outline: Login button disabled for invalid userid and password
     Given user is on login page
-    When user enters invalid userid "<userid>" and invalid password "<password>" format
+    When user enters userid "<userid>" and password "<password>"
     Then login button is disabled and user cannot login
 
     Examples:
