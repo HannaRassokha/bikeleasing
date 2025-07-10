@@ -1,13 +1,112 @@
 Task 1: Test analysis and documentation of contract creation process
 
-Test Cases:
+Test Scenarios:
 1.Retailer triggers contract creation through Employer
 2.Retailer triggers contract creation through Employee
 
 for each above mentioned scenario following contract validation is performed:
 
 Contract validation: (Exclusion list)
-1.Existent retailer, not in exclusion list -> message notification to retailer
-2.Existent retailer, in exclusion list -> no message to retailer
-3.Non-existent retailer, request property (get_retailer_prop), add to retailers list (names), check property for exclusion -> add to exclusion list => no message to retailer
-4.Non-existent retailer, request property (get_retailer_prop), add to retailers list (names), check property for exclusion -> do not add to exclusion list => message to retailer
+1.Existing retailer, not in exclusion list -> message notification to retailer
+2.Existing retailer, in exclusion list -> no message to retailer
+3.Non-existing retailer, request property (get_retailer_prop), add to retailers list (names), check property for exclusion -> add to exclusion list => no message to retailer
+4.Non-existing retailer, request property (get_retailer_prop), add to retailers list (names), check property for exclusion -> do not add to exclusion list => message to retailer
+
+Test Cases:
+
+TC 1 – Existing Retailer triggers contract creation through Employer (Not in Exclusion List)
+
+Steps:
+	1.	Retailer triggers contract creation via Employer
+	2.	System checks if retailer exists
+	3.	Retailer is found and not in exclusion list
+
+Expected Result:
+Message notification is sent to the retailer
+
+TC 2 – Existing Retailer triggers contract creation through Employer (In Exclusion List)
+
+Steps:
+	1.	Retailer triggers contract creation via Employer
+	2.	System checks if retailer exists
+	3.	Retailer is found and is in exclusion list
+
+Expected Result:
+No message is sent to the retailer
+
+TC 3 – New Retailer triggers contract creation through Employer (Excluded)
+
+Steps:
+	1.	Retailer triggers contract creation via Employer
+	2.	System checks if retailer exists
+	3.	Retailer not found
+	4.	System requests retailer property using get_retailer_prop
+	5.	Retailer is added to internal retailer list
+	6.	Retrieved property indicates exclusion
+
+Expected Result:
+Retailer is added to exclusion list
+No message is sent to the retailer
+
+TC 4 - New Retailer triggers contract creation through Employer (Not Excluded)
+
+Steps:
+	1.	Retailer triggers contract creation via Employer
+	2.	System checks if retailer exists
+	3.	Retailer not found
+	4.	System requests retailer property using get_retailer_prop
+	5.	Retailer is added to internal retailer list
+	6.	Retrieved property does not indicate exclusion
+
+Expected Result:
+Retailer is not added to exclusion list
+Message notification is sent to the retailer
+
+TC 5 – Existing Retailer triggers contract through Employee (Not in Exclusion List)
+
+Steps:
+	1.	Retailer triggers contract creation via Employee
+	2.	System checks if retailer exists
+	3.	Retailer is found and not in exclusion list
+
+Expected Result:
+Message notification is sent to the retailer
+
+TC 6 – Existing Retailer triggers contract through Employee (In Exclusion List)
+
+Steps:
+	1.	Retailer triggers contract creation via Employee
+	2.	System checks if retailer exists
+	3.	Retailer is found and is in exclusion list
+
+Expected Result:
+No message is sent to the retailer.
+
+TC 7 – New Retailer triggers contract through Employee (Excluded)
+
+Steps:
+	1.	Retailer triggers contract creation via Employee
+	2.	System checks if retailer exists
+	3.	Retailer not found
+	4.	System requests retailer property using get_retailer_prop
+	5.	Retailer is added to internal retailer list
+	6.	Retrieved property indicates exclusion
+
+Expected Result:
+Retailer is added to exclusion list
+No message is sent to the retailer
+
+TC 8 – New Retailer triggers contract through Employee (Not Excluded)
+
+Steps:
+	1.	Retailer triggers contract creation via Employee
+	2.	System checks if retailer exists
+	3.	Retailer not found
+	4.	System requests retailer property using get_retailer_prop
+	5.	Retailer is added to internal retailer list
+	6.	Retrieved property does not indicate exclusion
+
+Expected Result:
+Retailer is not added to exclusion list
+Message notification is sent to the retailer
+
