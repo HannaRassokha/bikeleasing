@@ -44,5 +44,5 @@ Feature: Login to portal.bikeleasing.de
       | userid    | password   |
       | A1B1-C2D3 | EMPTY      |
       | 12345678  | 1          |
-      | EMPTY     | Passwort1! |
+      | EMPTY     | Password1! |
       | EMPTY     | EMPTY      |

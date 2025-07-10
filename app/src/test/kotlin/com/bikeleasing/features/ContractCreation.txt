@@ -80,7 +80,7 @@ Steps:
 	3.	Retailer is found and is in exclusion list
 
 Expected Result:
-No message is sent to the retailer.
+No message is sent to the retailer
 
 TC 7 – New Retailer triggers contract through Employee (Excluded)
 

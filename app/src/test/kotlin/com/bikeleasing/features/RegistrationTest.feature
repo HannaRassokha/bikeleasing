@@ -1,6 +1,6 @@
 Feature: Registration at portal.bikeleasing.de
 
-  Scenario Outline: All mandatory fields in registration form are filled with valid data
+  Scenario Outline: Only mandatory fields in registration form are filled with valid data
     Given user is on registration page
     When user enters employeer_code "<employer_code>" and salutation "<salutation>"
     And user enters surname "<surname>" and firstname "<firstname>"
@@ -43,7 +43,7 @@ Feature: Registration at portal.bikeleasing.de
     And user enters surname "<surname>" and firstname "<firstname>"
     And user enters email "<email>" and phone "<phone>"
     And user enters personalid "<personalid>" and password "<password>"
-    And user enters cost_center "<cost_center>
+    And user enters cost_center "<cost_center>"
     And user enters address "<address>" and postal_code "<postal_code>"
     And user enters city "<city>" and mobile_phone "<mobile_phone>"
     And user clicks on register button
