@@ -1,4 +1,0 @@
-environment.name=test
-webdriver.base.url=https://bikeleasing.de
-api.base.url=https://catfact.ninja
-api.facts.uri=/facts?page=1
