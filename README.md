@@ -23,26 +23,21 @@ This is a test automation project built with **Gradle**, **Kotlin**, **JUnit 5**
 To execute all tests:
 
 ```bash
-./gradlew test
+./gradlew clean test
 ```
 
-## Task 2: BDD and Feature Files
+To run only scenarios with a specific tag:
 
-Behavior-Driven Development (BDD) scenarios for **Task 2** are defined using Gherkin syntax and are implemented as `.feature` files.
-
-### 📁 Location of Feature Files
-
-The feature files for Task 2 can be found in the following directory:
-```
-app/src/test/kotlin/com/bikeleasing/features
+```bash
+./gradlew clean test -Dtags="@redirection-to-registration"
 ```
 
-## Task 1: Test Analysis and Documentation
+📄 The Serenity report is generated at `app/target/site/serenity/index.html`.
 
-Description:
-Analyze and document the tests related to contract creation.
+## Running in GitHub Actions
 
-Location:
-```
-kotlin/com/bikeleasing/features/ContractCreation.txt
-```
+The tests also run on **GitHub Actions** in **Chrome (headless)**, defined in `.github/workflows/e2e.yml`.
+
+- 🚀 Runs automatically on every push and pull request to `main`
+- 🖱️ Can be triggered manually from the **Actions** tab → **E2E Tests** → **Run workflow** (with an optional tag filter)
+- 📦 The Serenity report and JUnit results are uploaded as downloadable artifacts on every run
