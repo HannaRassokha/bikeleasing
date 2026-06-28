@@ -1,0 +1,54 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: "Cucumber tag filter expression"
+        required: false
+        default: "@redirection-to-registration"
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    name: Serenity tests (Chrome, headless)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: gradle
+
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Run tests
+        run: ./gradlew --no-daemon clean test -Dtags="${{ github.event.inputs.tags || '@redirection-to-registration' }}"
+
+      - name: Upload Serenity report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report
+          path: app/target/site/serenity
+          if-no-files-found: warn
+
+      - name: Upload JUnit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: app/build/test-results
+          if-no-files-found: warn

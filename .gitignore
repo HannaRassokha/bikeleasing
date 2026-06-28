@@ -8,3 +8,6 @@ app/build
 # Ignore Gradle build output directory
 build
 history
+
+# Ignore Serenity/Maven output directory
+target

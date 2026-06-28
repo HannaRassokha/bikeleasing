@@ -1,3 +1,5 @@
+package com.bikeleasing.api.model
+
 data class CatFactResponse(
     val current_page: Int,
     val data: List<CatFact>,
