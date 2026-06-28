@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.TestInfo
 import org.junit.jupiter.api.TestInstance
+import kotlin.jvm.optionals.getOrNull
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 open class BaseTest {
@@ -20,5 +21,5 @@ open class BaseTest {
     }
 
     private fun TestInfo.testName(): String =
-        testClass.map { it.simpleName }.orElse(displayName)
+        testClass.getOrNull()?.simpleName ?: displayName
 }

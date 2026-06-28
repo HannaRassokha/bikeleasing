@@ -1,6 +1,11 @@
 plugins {
     kotlin("jvm") version "2.4.0"
+    kotlin("plugin.allopen") version "2.4.0"
     id("net.serenity-bdd.serenity-gradle-plugin") version "5.3.9"
+}
+
+allOpen {
+    annotation("com.bikeleasing.api.Open")
 }
 
 repositories {

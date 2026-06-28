@@ -1,6 +1,7 @@
 package com.bikeleasing.api.steps
 
 
+import com.bikeleasing.api.Open
 import com.bikeleasing.api.model.CatFact
 import com.bikeleasing.api.model.CatFactResponse
 import com.bikeleasing.support.Logger.LOGGER
@@ -13,8 +14,8 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.equalTo
 import org.htmlunit.http.HttpStatus
 
-
-open class CatFactsSteps {
+@Open
+class CatFactsSteps {
     private val environmentVariables by lazy { SerenityInfrastructure.getEnvironmentVariables() }
 
     private val factsUri = EnvironmentSpecificConfiguration
@@ -28,7 +29,7 @@ open class CatFactsSteps {
             ?: error("Missing 'api.base.url' in environment config")
 
     @Step("Fetch cat facts from endpoint")
-    open fun fetchCatFacts(): List<CatFact> {
+    fun fetchCatFacts(): List<CatFact> {
         val catFactResponse: CatFactResponse = SerenityRest
             .given()
             .baseUri(apiBaseUrl)
@@ -47,7 +48,7 @@ open class CatFactsSteps {
     }
 
     @Step("Validate cat facts")
-    open fun validateCatFacts(facts: List<CatFact>) {
+    fun validateCatFacts(facts: List<CatFact>) {
         LOGGER.info {"5 Cat Facts:"}
         facts.take(5).forEachIndexed { i, fact ->
             LOGGER.info {"${i + 1}. ${fact.fact}"}
@@ -56,7 +57,7 @@ open class CatFactsSteps {
     }
 
     @Step("Assert first cat fact length")
-    open fun assertFactLength(facts: List<CatFact>) {
+    fun assertFactLength(facts: List<CatFact>) {
         val firstFact = facts.first()
         LOGGER.info{ "Fact: ${firstFact.fact}"}
         Serenity.reportThat("Fact: ${firstFact.fact}") { }
